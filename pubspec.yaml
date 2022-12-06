@@ -20,6 +20,8 @@ dependencies:
   supabase_flutter: ^1.2.2
   curved_navigation_bar: ^1.0.3
   google_fonts: ^3.0.1
+  syncfusion_flutter_datagrid: ^20.3.59
+  d_chart: ^1.0.0
 
 dev_dependencies:
   flutter_test:

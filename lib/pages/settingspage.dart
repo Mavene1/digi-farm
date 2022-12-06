@@ -13,7 +13,7 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade400,
+      backgroundColor: Colors.grey.shade50,
       body: SafeArea(
           child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

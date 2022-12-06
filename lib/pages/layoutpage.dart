@@ -13,16 +13,16 @@ class LayoutPage extends StatefulWidget {
 
 class _LayoutPageState extends State<LayoutPage> {
   int currentPage = 0;
-  List<Widget> pages = const [HomePage(), ContactPage(),SettingsPage() ];
+  List<Widget> pages = const [HomePage(), ContactPage(), SettingsPage()];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: pages[currentPage],
-      backgroundColor: Colors.grey.shade400,
+      backgroundColor: Colors.grey.shade50,
       bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Colors.grey.shade400,
-        color: Colors.grey.shade300,
+        backgroundColor: Colors.grey.shade50,
+        color: Colors.grey.shade400,
         animationDuration: const Duration(milliseconds: 200),
         items: const [
           Icon(
@@ -46,7 +46,5 @@ class _LayoutPageState extends State<LayoutPage> {
         index: currentPage,
       ),
     );
-
-    
   }
 }
