@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import 'auth/auth_page.dart';
-import 'pages/homepage.dart';
+import 'pages/layoutpage.dart';
+
 
 // const supabaseURL = 'https://cofsiyieryhksfbkbskp.supabase.co';
 // const supabaseKey =
@@ -48,7 +49,7 @@ class MainPage extends StatelessWidget {
           //   return const Center(child: Text('Something went wrong'));
           // }
           if (snapshot.hasData) {
-            return const HomePage();
+            return const LayoutPage();
           } else {
             return const AuthPage();
           }

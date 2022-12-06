@@ -22,13 +22,13 @@ class _LoginPageState extends State<LoginPage> {
       await Supabase.instance.client.auth.signInWithPassword(
           email: emailControler.text.trim(),
           password: passwordControler.text.trim());
-    } catch (e) {
+    } on AuthException catch (e) {
       print(e);
       showDialog(
         context: context,
         builder: ((context) {
           return AlertDialog(
-            content: Text(e.toString()),
+            content: Text(e.message.toString()),
           );
         }),
       );

@@ -13,24 +13,25 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage> {
   final emailControler = TextEditingController();
-  final phoneNumberController = TextEditingController();
+  // final phoneNumberController = TextEditingController();
   final passwordControler = TextEditingController();
   final confirmPasswordControler = TextEditingController();
 
   final supaClient = Supabase.instance.client;
 
-  Future<void> signUp() async {
+  Future<void> signUpUser() async {
     try {
       if (passwordConfirmed()) {
         await supaClient.auth.signUp(
-            email: emailControler.text.trim(),
-            phone: phoneNumberController.text.trim(),
-            password: passwordControler.text.trim());
+          email: emailControler.text.trim(),
+          // phone: phoneNumberController.text.trim(),
+          password: passwordControler.text.trim(),
+        );
 
         // ignore: empty_catches
       }
     } catch (e) {
-      print(e.toString());
+      print("Shida: $e");
     }
   }
 
@@ -46,7 +47,7 @@ class _RegisterPageState extends State<RegisterPage> {
   void dispose() {
     super.dispose();
     emailControler.dispose();
-    phoneNumberController.dispose();
+    // phoneNumberController.dispose();
     passwordControler.dispose();
     confirmPasswordControler.dispose();
   }
@@ -108,30 +109,30 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                 ),
                 const SizedBox(
-                  height: 50,
+                  height: 10,
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.grey[200],
-                      border: Border.all(color: Colors.green),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 15.0),
-                      child: TextField(
-                        controller: phoneNumberController,
-                        decoration: const InputDecoration(
-                          border: InputBorder.none,
-                          hintText: 'Enter Phone Number',
-                          prefixIcon: Icon(Icons.mail, color: Colors.green),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 10),
+                // Padding(
+                //   padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                //   child: Container(
+                //     decoration: BoxDecoration(
+                //       color: Colors.grey[200],
+                //       border: Border.all(color: Colors.green),
+                //       borderRadius: BorderRadius.circular(12),
+                //     ),
+                //     child: Padding(
+                //       padding: const EdgeInsets.only(left: 15.0),
+                //       child: TextField(
+                //         controller: phoneNumberController,
+                //         decoration: const InputDecoration(
+                //           border: InputBorder.none,
+                //           hintText: 'Enter Phone Number',
+                //           prefixIcon: Icon(Icons.phone, color: Colors.green),
+                //         ),
+                //       ),
+                //     ),
+                //   ),
+                // ),
+                // const SizedBox(height: 10),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: Container(
@@ -181,7 +182,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: GestureDetector(
-                    onTap: signUp,
+                    onTap: signUpUser,
                     child: Container(
                       padding: const EdgeInsets.all(12.0),
                       decoration: BoxDecoration(
