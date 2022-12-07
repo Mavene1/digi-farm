@@ -8,7 +8,7 @@ class DatabaseService {
     try {
       var response = await Supabase.instance.client
           .from('Produce')
-          .select('farmer_id')
+          .select('weight')
           .execute();
       print(response.data);
     } on PostgrestException catch (e) {
