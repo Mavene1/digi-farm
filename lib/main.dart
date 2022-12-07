@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import 'auth/auth_page.dart';
-import 'pages/layoutpage.dart';
+import 'pages/layout_page.dart';
 
 
 // const supabaseURL = 'https://cofsiyieryhksfbkbskp.supabase.co';

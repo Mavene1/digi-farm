@@ -57,8 +57,14 @@ class _HomePageState extends State<HomePage> {
                         GridColumn(
                           columnName: 'id',
                           label: Container(
-                            color: Colors.grey.shade500,
-                            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                            decoration: BoxDecoration(
+                              color: Colors.grey.shade500,
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(10),
+                              ),
+                            ),
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 16.0),
                             alignment: Alignment.center,
                             child: Text(
                               'DATE',
@@ -73,7 +79,8 @@ class _HomePageState extends State<HomePage> {
                           columnName: 'name',
                           label: Container(
                             color: Colors.grey.shade500,
-                            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 16.0),
                             alignment: Alignment.center,
                             child: Text(
                               'TIME',
@@ -87,8 +94,14 @@ class _HomePageState extends State<HomePage> {
                         GridColumn(
                           columnName: 'salary',
                           label: Container(
-                            color: Colors.grey.shade500,
-                            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                            decoration: BoxDecoration(
+                              color: Colors.grey.shade500,
+                              borderRadius: const BorderRadius.only(
+                                topRight: Radius.circular(10),
+                              ),
+                            ),
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 16.0),
                             alignment: Alignment.center,
                             child: Text(
                               'AMOUNT',
@@ -113,11 +126,11 @@ class _HomePageState extends State<HomePage> {
 
   List<Employee> getEmployeeData() {
     return [
-      Employee(10001, 'James', 20000),
-      Employee(10002, 'Kathryn', 30000),
-      Employee(10003, 'Lara', 15000),
-      Employee(10004, 'Michael', 15000),
-      Employee(10005, 'Martin', 15000),
+      Employee(10 - 01, '10:23', 20000),
+      Employee(10 - 02, '7:34', 30000),
+      Employee(10 - 03, '4:49', 15000),
+      Employee(10 - 04, '2:07', 27000),
+      Employee(10 - 05, '8:40', 16000),
     ];
   }
 }

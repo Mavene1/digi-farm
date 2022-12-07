@@ -20,7 +20,7 @@ class _SettingsPageState extends State<SettingsPage> {
         children: [
           Padding(
             padding:
-                const EdgeInsets.symmetric(horizontal: 30.0, vertical: 25.0),
+                const EdgeInsets.symmetric(horizontal: 30.0, vertical: 12.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -41,6 +41,16 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
               ],
             ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 0),
+            child: Divider(
+              color: Colors.grey[400],
+              thickness: 1,
+            ),
+          ),
+          const SizedBox(
+            height: 10,
           ),
           Padding(
             padding:
@@ -89,7 +99,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   ],
                 ),
                 const SizedBox(
-                  height: 30,
+                  height: 50,
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),

@@ -1,7 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:digi_farmers/pages/contactpage.dart';
-import 'package:digi_farmers/pages/homepage.dart';
-import 'package:digi_farmers/pages/settingspage.dart';
+import 'package:digi_farmers/pages/contact_page.dart';
+import 'package:digi_farmers/pages/home_page.dart';
+import 'package:digi_farmers/pages/settings_page.dart';
 import 'package:flutter/material.dart';
 
 class LayoutPage extends StatefulWidget {
@@ -27,15 +27,15 @@ class _LayoutPageState extends State<LayoutPage> {
         items: const [
           Icon(
             Icons.home,
-            color: Colors.black,
+            color: Colors.green,
           ),
           Icon(
             Icons.phone,
-            color: Colors.black,
+            color: Colors.green,
           ),
           Icon(
             Icons.settings,
-            color: Colors.black,
+            color: Colors.green,
           ),
         ],
         onTap: (int index) {
