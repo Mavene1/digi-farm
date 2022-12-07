@@ -16,12 +16,15 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final emailControler = TextEditingController();
   final passwordControler = TextEditingController();
+  late bool _passwordVisible;
 
   Future logIn() async {
     try {
-      await Supabase.instance.client.auth.signInWithPassword(
+      final res = await Supabase.instance.client.auth.signInWithPassword(
           email: emailControler.text.trim(),
           password: passwordControler.text.trim());
+      final user = res.user;
+      return user?.id;
     } on AuthException catch (e) {
       print(e);
       showDialog(
@@ -33,6 +36,12 @@ class _LoginPageState extends State<LoginPage> {
         }),
       );
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _passwordVisible = false;
   }
 
   @override
@@ -111,11 +120,23 @@ class _LoginPageState extends State<LoginPage> {
                         padding: const EdgeInsets.only(left: 15.0),
                         child: TextField(
                           controller: passwordControler,
-                          obscureText: true,
-                          decoration: const InputDecoration(
+                          obscureText: !_passwordVisible,
+                          decoration: InputDecoration(
                             border: InputBorder.none,
                             hintText: 'Enter password',
-                            prefixIcon: Icon(Icons.lock, color: Colors.green),
+                            prefixIcon:
+                                const Icon(Icons.lock, color: Colors.green),
+                            suffixIcon: IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  _passwordVisible = !_passwordVisible;
+                                });
+                              },
+                              icon: Icon(_passwordVisible
+                                  ? Icons.visibility_rounded
+                                  : Icons.visibility_off_rounded),
+                              color: Colors.green,
+                            ),
                           ),
                         ),
                       ),

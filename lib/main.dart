@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import 'auth/auth_page.dart';
-import 'pages/layout_page.dart';
-
+import 'pages_auth/layout_page.dart';
 
 // const supabaseURL = 'https://cofsiyieryhksfbkbskp.supabase.co';
 // const supabaseKey =
@@ -18,6 +17,7 @@ void main() async {
         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNvZnNpeWllcnloa3NmYmtic2twIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzAyNDAzOTYsImV4cCI6MTk4NTgxNjM5Nn0.84AjnK6ciJFgdVoOpD7520e9B91Ut9mIosUAKWiQDU8',
     debug: true,
   );
+
   runApp(const MyApp());
 }
 
@@ -38,23 +38,15 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: StreamBuilder<AuthState?>(
-        stream: Supabase.instance.client.auth.onAuthStateChange,
-        builder: (context, snapshot) {
-        
-          // if (snapshot.connectionState == ConnectionState.waiting) {
-          //   return const Center(child: CircularProgressIndicator());
-          // } else if (snapshot.hasError) {
-          //   return const Center(child: Text('Something went wrong'));
-          // }
-          if (snapshot.hasData) {
+    
+          if (Supabase.instance.client.auth.currentUser != null) {
+            //print('Weka: $snapshot');
+
             return const LayoutPage();
           } else {
             return const AuthPage();
           }
-        },
-      ),
-    );
+        }
+      
   }
-}
+

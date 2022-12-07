@@ -16,6 +16,8 @@ class _RegisterPageState extends State<RegisterPage> {
   // final phoneNumberController = TextEditingController();
   final passwordControler = TextEditingController();
   final confirmPasswordControler = TextEditingController();
+  late bool _passwordVisible;
+  late bool _passVisible;
 
   final supaClient = Supabase.instance.client;
 
@@ -42,6 +44,16 @@ class _RegisterPageState extends State<RegisterPage> {
       return false;
     }
   }
+
+  @override
+  void initState() {
+    _passwordVisible = false;
+    _passVisible = false;
+    super.initState();
+    
+  }
+
+  
 
   @override
   void dispose() {
@@ -145,11 +157,23 @@ class _RegisterPageState extends State<RegisterPage> {
                       padding: const EdgeInsets.only(left: 15.0),
                       child: TextField(
                         controller: passwordControler,
-                        obscureText: true,
-                        decoration: const InputDecoration(
+                        obscureText: !_passwordVisible,
+                        decoration: InputDecoration(
                           border: InputBorder.none,
                           hintText: 'Enter password',
-                          prefixIcon: Icon(Icons.lock, color: Colors.green),
+                          prefixIcon:
+                              const Icon(Icons.lock, color: Colors.green),
+                          suffixIcon: IconButton(
+                            onPressed: () {
+                              setState(() {
+                                _passwordVisible = !_passwordVisible;
+                              });
+                            },
+                            icon: Icon(_passwordVisible
+                                ? Icons.visibility_rounded
+                                : Icons.visibility_off_rounded),
+                            color: Colors.green,
+                          ),
                         ),
                       ),
                     ),
@@ -168,11 +192,23 @@ class _RegisterPageState extends State<RegisterPage> {
                       padding: const EdgeInsets.only(left: 15.0),
                       child: TextField(
                         controller: confirmPasswordControler,
-                        obscureText: true,
-                        decoration: const InputDecoration(
+                        obscureText: !_passVisible,
+                        decoration: InputDecoration(
                           border: InputBorder.none,
                           hintText: 'Confirm password',
-                          prefixIcon: Icon(Icons.lock, color: Colors.green),
+                          prefixIcon:
+                              const Icon(Icons.lock, color: Colors.green),
+                          suffixIcon: IconButton(
+                            onPressed: () {
+                              setState(() {
+                                _passVisible = !_passVisible;
+                              });
+                            },
+                            icon: Icon(_passVisible
+                                ? Icons.visibility_rounded
+                                : Icons.visibility_off_rounded),
+                            color: Colors.green,
+                          ),
                         ),
                       ),
                     ),

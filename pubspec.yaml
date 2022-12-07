@@ -22,6 +22,8 @@ dependencies:
   google_fonts: ^3.0.1
   syncfusion_flutter_datagrid: ^20.3.59
   d_chart: ^1.0.0
+  shared_preferences: ^2.0.15
+  provider: ^6.0.4
 
 dev_dependencies:
   flutter_test:

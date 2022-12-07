@@ -31,7 +31,7 @@ class _BalanceState extends State<Balance> {
                   width: 10,
                 ),
                 Text(
-                  'Ksh',
+                  'Kg',
                   style: GoogleFonts.lato(
                     color: Colors.black,
                     fontSize: 20,

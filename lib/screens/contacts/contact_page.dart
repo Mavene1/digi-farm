@@ -1,5 +1,5 @@
 import 'package:d_chart/d_chart.dart';
-import 'package:digi_farmers/util/barchart.dart';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

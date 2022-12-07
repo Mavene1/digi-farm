@@ -1,3 +1,4 @@
+import 'package:digi_farmers/services/db_service.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -10,6 +11,7 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
+  DatabaseService databaseService = DatabaseService();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,45 +60,81 @@ class _SettingsPageState extends State<SettingsPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  children: [
-                    Icon(
-                      Icons.lock_outline_rounded,
-                      color: Colors.grey.shade800,
-                    ),
-                    const SizedBox(
-                      width: 6,
-                    ),
-                    Text('Change Password',
-                        style: GoogleFonts.lato(
-                            fontSize: 20, color: Colors.grey[800])),
-                  ],
+                InkWell(
+                  borderRadius: BorderRadius.circular(10),
+                  highlightColor: Colors.green,
+                  onTap: () {
+                    //print('tap detected');
+                  },
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.lock_outline_rounded,
+                        color: Colors.grey.shade800,
+                      ),
+                      const SizedBox(
+                        width: 6,
+                      ),
+                      Text('Change Password',
+                          style: GoogleFonts.lato(
+                              fontSize: 20, color: Colors.grey[800])),
+                    ],
+                  ),
                 ),
                 const SizedBox(
                   height: 20,
                 ),
-                Text('Privacy and Policy',
-                    style: GoogleFonts.lato(
-                        fontSize: 20, color: Colors.grey[800])),
+                InkWell(
+                  borderRadius: BorderRadius.circular(10),
+                  highlightColor: Colors.green,
+                  onTap: () {
+                    //print('tappings');
+                  },
+                  child: Row(
+                    children: [
+                      Text('Privacy and Policy',
+                          style: GoogleFonts.lato(
+                              fontSize: 20, color: Colors.grey[800])),
+                    ],
+                  ),
+                ),
                 const SizedBox(
                   height: 20,
                 ),
-                Text('Terms of Use',
-                    style: GoogleFonts.lato(
-                        fontSize: 20, color: Colors.grey[800])),
+                InkWell(
+                  borderRadius: BorderRadius.circular(10),
+                  highlightColor: Colors.green,
+                  onTap: () {
+                    //print('detected');
+                  },
+                  child: Row(
+                    children: [
+                      Text('Terms of Use',
+                          style: GoogleFonts.lato(
+                              fontSize: 20, color: Colors.grey[800])),
+                    ],
+                  ),
+                ),
                 const SizedBox(
                   height: 20,
                 ),
-                Row(
-                  children: [
-                    Icon(Icons.help_outline_rounded, color: Colors.grey[800]),
-                    const SizedBox(
-                      width: 6,
-                    ),
-                    Text('Help and Support',
-                        style: GoogleFonts.lato(
-                            fontSize: 20, color: Colors.grey[800])),
-                  ],
+                InkWell(
+                  borderRadius: BorderRadius.circular(10),
+                  highlightColor: Colors.green,
+                  onTap: () {
+                    //print('tap');
+                  },
+                  child: Row(
+                    children: [
+                      Icon(Icons.help_outline_rounded, color: Colors.grey[800]),
+                      const SizedBox(
+                        width: 6,
+                      ),
+                      Text('Help and Support',
+                          style: GoogleFonts.lato(
+                              fontSize: 20, color: Colors.grey[800])),
+                    ],
+                  ),
                 ),
                 const SizedBox(
                   height: 50,
@@ -106,6 +144,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   child: GestureDetector(
                     onTap: () async {
                       await Supabase.instance.client.auth.signOut();
+                      Supabase.instance.client.auth.currentUser == null;
                     },
                     child: Container(
                       padding: const EdgeInsets.all(12.0),
@@ -124,6 +163,20 @@ class _SettingsPageState extends State<SettingsPage> {
                       ),
                     ),
                   ),
+                ),
+                // FutureBuilder(
+                //     future: databaseService.fetchData(),
+                //     builder: (context, snapshot) {
+                //       if (snapshot.hasData) {
+                //         return ListView();
+                //       }
+                //       return Container();
+                //     }),
+                MaterialButton(
+                  onPressed: () {
+                    databaseService.fetchData();
+                  },
+                  color: Colors.green,
                 ),
               ],
             ),

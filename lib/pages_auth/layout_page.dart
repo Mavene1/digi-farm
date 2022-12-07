@@ -1,8 +1,13 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:digi_farmers/pages/contact_page.dart';
-import 'package:digi_farmers/pages/home_page.dart';
-import 'package:digi_farmers/pages/settings_page.dart';
+
+
 import 'package:flutter/material.dart';
+
+import '../screens/contacts/contact_page.dart';
+import '../screens/home/home_page.dart';
+import '../screens/settings/settings_page.dart';
+
+
 
 class LayoutPage extends StatefulWidget {
   const LayoutPage({super.key});

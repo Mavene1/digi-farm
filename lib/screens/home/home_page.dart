@@ -1,10 +1,12 @@
-//import 'package:digi_farmers/util/barchart.dart';
-import 'package:digi_farmers/util/balance.dart';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:syncfusion_flutter_datagrid/datagrid.dart';
 
-import '../util/barchart.dart';
+import 'widgets/balance.dart';
+import 'widgets/barchart.dart';
+
+
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -46,8 +48,24 @@ class _HomePageState extends State<HomePage> {
                     height: 70,
                     child: Balance(),
                   ),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 0.0, vertical: 0.0),
+                    child: Text(
+                      'Produce Submitted',
+                      style: GoogleFonts.lato(
+                        fontSize: 20,
+                        color: Colors.grey[800],
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        left: 20, right: 20, bottom: 20, top: 5),
                     child: SfDataGrid(
                       source: _employeeDataSource,
                       gridLinesVisibility: GridLinesVisibility.both,
