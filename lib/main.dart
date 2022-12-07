@@ -38,7 +38,10 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
+    return Scaffold(
+      body: StreamBuilder<AuthState?>(
+        stream: Supabase.instance.client.auth.onAuthStateChange,
+        builder: (context, snapshot) {
           if (Supabase.instance.client.auth.currentUser != null) {
             //print('Weka: $snapshot');
 
@@ -46,7 +49,8 @@ class MainPage extends StatelessWidget {
           } else {
             return const AuthPage();
           }
-        }
-      
+        },
+      ),
+    );
   }
-
+}

@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print, use_build_context_synchronously,
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import 'forgot_pass_page.dart';
@@ -31,7 +32,10 @@ class _LoginPageState extends State<LoginPage> {
         context: context,
         builder: ((context) {
           return AlertDialog(
-            content: Text(e.message.toString()),
+            content: Text(
+              e.message.toString(),
+              
+            ),
           );
         }),
       );

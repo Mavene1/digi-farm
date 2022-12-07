@@ -32,7 +32,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
         // ignore: empty_catches
       }
-    } catch (e) {
+    }  catch (e) {
       print("Shida: $e");
     }
   }

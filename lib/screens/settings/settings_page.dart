@@ -172,6 +172,9 @@ class _SettingsPageState extends State<SettingsPage> {
                 //       }
                 //       return Container();
                 //     }),
+                const SizedBox(
+                  height: 50,
+                ),
                 MaterialButton(
                   onPressed: () {
                     databaseService.fetchData();
