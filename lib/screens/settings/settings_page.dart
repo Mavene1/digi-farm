@@ -1,6 +1,7 @@
 import 'package:digi_farmers/services/db_service.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:isoweek/isoweek.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class SettingsPage extends StatefulWidget {
@@ -175,12 +176,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 const SizedBox(
                   height: 50,
                 ),
-                MaterialButton(
-                  onPressed: () {
-                    databaseService.fetchData();
-                  },
-                  color: Colors.green,
-                ),
+                
               ],
             ),
           )
