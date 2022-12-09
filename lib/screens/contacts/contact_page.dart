@@ -8,11 +8,11 @@ class ContactPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.grey.shade200,
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 5),
+    return Scaffold(
+      backgroundColor: Colors.grey.shade200,
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 5),
+        child: SafeArea(
           child: ListView(
             padding: const EdgeInsets.all(16),
             children: [

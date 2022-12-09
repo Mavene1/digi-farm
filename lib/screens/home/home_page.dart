@@ -37,21 +37,21 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.grey.shade200,
-        body: Padding(
-          padding: const EdgeInsets.all(5.0),
-          child: SizedBox(
-            child: FutureBuilder(
-              future: DatabaseService.fetchUserId(),
-              builder: (context, snapshot) {
-                if (snapshot.data != null) {
-                  return ValueListenableBuilder(
-                    valueListenable: DatabaseService.fetchUpdatesRealtime(
-                        weightData, snapshot.data!, currentWeek),
-                    builder: (context, weights, child) {
-                      return SingleChildScrollView(
+    return Scaffold(
+      backgroundColor: Colors.grey.shade200,
+      body: Padding(
+        padding: const EdgeInsets.all(5.0),
+        child: SizedBox(
+          child: FutureBuilder(
+            future: DatabaseService.fetchUserId(),
+            builder: (context, snapshot) {
+              if (snapshot.data != null) {
+                return ValueListenableBuilder(
+                  valueListenable: DatabaseService.fetchUpdatesRealtime(
+                      weightData, snapshot.data!, currentWeek),
+                  builder: (context, weights, child) {
+                    return SingleChildScrollView(
+                      child: SafeArea(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -156,18 +156,18 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ],
                         ),
-                      );
-                    },
-                  );
-                }
-
-                return const Center(
-                  child: CircularProgressIndicator(
-                    color: Colors.green,
-                  ),
+                      ),
+                    );
+                  },
                 );
-              },
-            ),
+              }
+
+              return const Center(
+                child: CircularProgressIndicator(
+                  color: Colors.green,
+                ),
+              );
+            },
           ),
         ),
       ),
