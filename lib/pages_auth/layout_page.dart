@@ -1,13 +1,10 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
-
 import 'package:flutter/material.dart';
 
 import '../screens/contacts/contact_page.dart';
 import '../screens/home/home_page.dart';
 import '../screens/settings/settings_page.dart';
-
-
 
 class LayoutPage extends StatefulWidget {
   const LayoutPage({super.key});
@@ -26,7 +23,7 @@ class _LayoutPageState extends State<LayoutPage> {
       body: pages[currentPage],
       backgroundColor: Colors.grey.shade50,
       bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Colors.grey.shade50,
+        backgroundColor: Colors.grey.shade200,
         color: Colors.grey.shade400,
         animationDuration: const Duration(milliseconds: 200),
         items: const [

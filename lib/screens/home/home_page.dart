@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.grey.shade50,
+        backgroundColor: Colors.grey.shade200,
         body: Padding(
           padding: const EdgeInsets.all(5.0),
           child: SizedBox(
@@ -48,18 +48,15 @@ class _HomePageState extends State<HomePage> {
               builder: (context, snapshot) {
                 if (snapshot.data != null) {
                   return ValueListenableBuilder(
-                    valueListenable: DatabaseService.fetchUpdates(
+                    valueListenable: DatabaseService.fetchUpdatesRealtime(
                         weightData, snapshot.data!, currentWeek),
                     builder: (context, weights, child) {
                       return SingleChildScrollView(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            SizedBox(
-                              height: 200,
-                              child: BarChart(
-                                weightData: weights,
-                              ),
+                            BarChart(
+                              weightData: weights,
                             ),
                             const SizedBox(
                               height: 30,
@@ -165,7 +162,9 @@ class _HomePageState extends State<HomePage> {
                 }
 
                 return const Center(
-                  child: CircularProgressIndicator(),
+                  child: CircularProgressIndicator(
+                    color: Colors.green,
+                  ),
                 );
               },
             ),

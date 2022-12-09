@@ -35,21 +35,34 @@ class DatabaseService {
     }
   }
 
-  static ValueNotifier<List<WeightData>> fetchUpdates(
+  static ValueNotifier<List<WeightData>> fetchUpdatesRealtime(
       ValueNotifier<List<WeightData>> weightData, String userId, Week week) {
     fetchData(weightData, userId, week);
     Supabase.instance.client
-        .channel('db-changes')
-        .on(
-            RealtimeListenTypes.postgresChanges,
-            ChannelFilter(
-              event: '*',
-              schema: 'public',
-              table: 'Produce',
-              filter: 'farmer_id=eq.$userId',
-            ),
-            (payload, [ref]) => fetchData(weightData, userId, week))
-        .subscribe();
+        .from('Produce')
+        .stream(
+            primaryKey: ['produce_id']) // Pass list of primary key column names
+        .eq('farmer_id', userId)
+        .limit(1)
+        .listen((event) => fetchData(weightData, userId, week));
     return weightData;
   }
+  // static ValueNotifier<List<WeightData>> fetchUpdates(
+  //     ValueNotifier<List<WeightData>> weightData, String userId, Week week) {
+  //   fetchData(weightData, userId, week);
+  //   Supabase.instance.client
+  //       .channel('db-changes')
+  //       .on(
+  //           RealtimeListenTypes.postgresChanges,
+  //           ChannelFilter(
+  //             event: '*',
+  //             schema: 'public',
+  //             table: 'Produce',
+  //             filter: 'farmer_id=eq.$userId',
+  //           ),
+  //           (payload, [ref]) => fetchData(weightData, userId, week))
+  //       .subscribe();
+  //   return weightData;
+  // }
+
 }

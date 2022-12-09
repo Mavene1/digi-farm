@@ -14,71 +14,65 @@ class BarChart extends StatefulWidget {
 class _BarChartState extends State<BarChart> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                        color: Colors.blue.shade100,
-                        borderRadius: BorderRadius.circular(16)),
-                    width: 300,
-                    padding: const EdgeInsets.all(10),
-                    child: AspectRatio(
-                      aspectRatio: 16 / 9,
-                      child: DChartBar(
-                        data: [
-                          {
-                            'id': 'Bar',
-                            'data': [
-                              {
-                                'domain': 'Mon',
-                                'measure': sumWeights(widget.weightData, 0)
-                              },
-                              {
-                                'domain': 'Tue',
-                                'measure': sumWeights(widget.weightData, 1)
-                              },
-                              {
-                                'domain': 'Wed',
-                                'measure': sumWeights(widget.weightData, 2)
-                              },
-                              {
-                                'domain': 'Thur',
-                                'measure': sumWeights(widget.weightData, 3)
-                              },
-                              {
-                                'domain': 'Fri',
-                                'measure': sumWeights(widget.weightData, 4)
-                              },
-                              {
-                                'domain': 'Sat',
-                                'measure': sumWeights(widget.weightData, 5)
-                              },
-                              {
-                                'domain': 'Sun',
-                                'measure': sumWeights(widget.weightData, 6)
-                              },
-                            ],
-                          },
-                        ],
-                        domainLabelPaddingToAxisLine: 10,
-                        axisLineTick: 2,
-                        axisLinePointTick: 2,
-                        axisLinePointWidth: 10,
-                        axisLineColor: Colors.green,
-                        measureLabelPaddingToAxisLine: 16,
-                        barColor: (barData, index, id) => Colors.green,
-                        showBarValue: true,
-                        minimumPaddingBetweenLabel: 10,
-                      ),
-                    ),
-                  ),
-                ],
+            Container(
+              decoration: BoxDecoration(
+                  color: Colors.blue.shade100,
+                  borderRadius: BorderRadius.circular(16)),
+              width: 300,
+              padding: const EdgeInsets.all(10),
+              child: AspectRatio(
+                aspectRatio: 16 / 9,
+                child: DChartBar(
+                  data: [
+                    {
+                      'id': 'Bar',
+                      'data': [
+                        {
+                          'domain': 'Mon',
+                          'measure': sumWeights(widget.weightData, 0)
+                        },
+                        {
+                          'domain': 'Tue',
+                          'measure': sumWeights(widget.weightData, 1)
+                        },
+                        {
+                          'domain': 'Wed',
+                          'measure': sumWeights(widget.weightData, 2)
+                        },
+                        {
+                          'domain': 'Thur',
+                          'measure': sumWeights(widget.weightData, 3)
+                        },
+                        {
+                          'domain': 'Fri',
+                          'measure': sumWeights(widget.weightData, 4)
+                        },
+                        {
+                          'domain': 'Sat',
+                          'measure': sumWeights(widget.weightData, 5)
+                        },
+                        {
+                          'domain': 'Sun',
+                          'measure': sumWeights(widget.weightData, 6)
+                        },
+                      ],
+                    },
+                  ],
+                  domainLabelPaddingToAxisLine: 10,
+                  axisLineTick: 2,
+                  axisLinePointTick: 2,
+                  axisLinePointWidth: 10,
+                  axisLineColor: Colors.green,
+                  measureLabelPaddingToAxisLine: 16,
+                  barColor: (barData, index, id) => Colors.green,
+                  showBarValue: true,
+                  minimumPaddingBetweenLabel: 10,
+                ),
               ),
             ),
           ],

@@ -1,7 +1,6 @@
 import 'package:digi_farmers/services/db_service.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:isoweek/isoweek.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class SettingsPage extends StatefulWidget {
@@ -16,7 +15,7 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade50,
+      backgroundColor: Colors.grey.shade200,
       body: SafeArea(
           child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -145,7 +144,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   child: GestureDetector(
                     onTap: () async {
                       await Supabase.instance.client.auth.signOut();
-                      Supabase.instance.client.auth.currentUser == null;
+                      //Supabase.instance.client.auth.currentUser == null;
                     },
                     child: Container(
                       padding: const EdgeInsets.all(12.0),
@@ -176,7 +175,6 @@ class _SettingsPageState extends State<SettingsPage> {
                 const SizedBox(
                   height: 50,
                 ),
-                
               ],
             ),
           )

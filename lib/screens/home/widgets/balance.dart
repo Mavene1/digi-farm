@@ -48,7 +48,7 @@ class _BalanceState extends State<Balance> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
-                '$currSum',
+                currSum.toStringAsFixed(2),
                 style: GoogleFonts.lato(
                   color: Colors.black,
                   fontSize: 26,
@@ -71,7 +71,7 @@ class _BalanceState extends State<Balance> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25.0),
           child: ValueListenableBuilder(
-            valueListenable: DatabaseService.fetchUpdates(
+            valueListenable: DatabaseService.fetchUpdatesRealtime(
                 previousWeightData, widget.userId, widget.comparisonWeek),
             builder: (context, previousWeights, child) {
               final prevSum = previousWeights
@@ -90,7 +90,7 @@ class _BalanceState extends State<Balance> {
                     color: dev <= 0 ? Colors.red : Colors.green,
                   ),
                   Text(
-                    '$dev(${perc.toStringAsFixed(2)}%)',
+                    '${dev.toStringAsFixed(2)}(${perc.toStringAsFixed(2)}%)',
                     style: GoogleFonts.lato(
                       color: dev <= 0 ? Colors.red : Colors.green,
                       fontSize: 18,

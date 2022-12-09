@@ -10,7 +10,7 @@ class ContactPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.grey.shade50,
+        backgroundColor: Colors.grey.shade200,
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 5),
           child: ListView(
