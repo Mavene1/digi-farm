@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -32,8 +33,38 @@ class _RegisterPageState extends State<RegisterPage> {
 
         // ignore: empty_catches
       }
-    }  catch (e) {
-      print("Shida: $e");
+    } on AuthException catch (e) {
+      //print("Shida: $e");
+      showDialog(
+        context: context,
+        builder: ((context) {
+          return AlertDialog(
+            title: Center(
+              child: Text(
+                'SignUp Error',
+                style: GoogleFonts.lato(
+                  color: Colors.grey.shade500,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            content: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: Text(
+                e.message.toString(),
+                style: GoogleFonts.lato(
+                    color: Colors.grey.shade400,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+            shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(20.0))),
+            backgroundColor: Colors.black87,
+          );
+        }),
+      );
     }
   }
 
@@ -50,10 +81,7 @@ class _RegisterPageState extends State<RegisterPage> {
     _passwordVisible = false;
     _passVisible = false;
     super.initState();
-    
   }
-
-  
 
   @override
   void dispose() {

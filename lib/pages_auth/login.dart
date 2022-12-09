@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_print, use_build_context_synchronously,
 
+import 'package:digi_farmers/widgets/popup_message.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -28,14 +29,34 @@ class _LoginPageState extends State<LoginPage> {
       return user?.id;
     } on AuthException catch (e) {
       print(e);
+      //showMessage(title: 'SignIn Error', message: 'message');
       showDialog(
         context: context,
         builder: ((context) {
           return AlertDialog(
-            content: Text(
-              e.message.toString(),
-              
+            title: Center(
+              child: Text(
+                'SignIn Error',
+                style: GoogleFonts.lato(
+                  color: Colors.grey.shade500,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
+            content: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: Text(
+                e.message.toString(),
+                style: GoogleFonts.lato(
+                    color: Colors.grey.shade300,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+            shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(20.0))),
+            backgroundColor: Colors.black87,
           );
         }),
       );

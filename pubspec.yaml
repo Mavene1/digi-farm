@@ -26,6 +26,8 @@ dependencies:
   provider: ^6.0.4
   isoweek: ^1.1.4
   intl: ^0.17.0
+  get: ^4.6.5
+  responsive_sizer: ^3.1.1
 
 dev_dependencies:
   flutter_test:
