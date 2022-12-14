@@ -30,6 +30,7 @@ dependencies:
   responsive_sizer: ^3.1.1
   url_launcher: ^6.1.7
   internet_connection_checker: 
+  flutter_statusbarcolor_ns: ^0.5.0
 
 dev_dependencies:
   flutter_test:
