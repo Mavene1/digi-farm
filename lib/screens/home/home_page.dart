@@ -1,4 +1,5 @@
 import 'package:digi_farmers/models/weights.dart';
+import 'package:digi_farmers/screens/home/notification_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
@@ -38,9 +39,53 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.grey.shade200,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: GestureDetector(
+              onTap: () {},
+              child: const Icon(
+                Icons.filter_alt_outlined,
+                color: Colors.green,
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 20.0),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const NotificationPage()),
+                );
+              },
+              child: const Icon(
+                Icons.notifications_none_outlined,
+                color: Colors.green,
+              ),
+            ),
+          )
+        ],
+        leading: Padding(
+          padding: const EdgeInsets.only(
+            left: 20.0,
+          ),
+          child: CircleAvatar(
+            radius: 22,
+            backgroundColor: Colors.green,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(50),
+              child: Image.asset('images/down.jpeg'),
+            ),
+          ),
+        ),
+      ),
       backgroundColor: Colors.grey.shade200,
       body: Padding(
-        padding: const EdgeInsets.all(5.0),
+        padding: const EdgeInsets.symmetric(vertical: 5.0),
         child: SizedBox(
           child: FutureBuilder(
             future: DatabaseService.fetchUserId(),
@@ -59,7 +104,7 @@ class _HomePageState extends State<HomePage> {
                               weightData: weights,
                             ),
                             const SizedBox(
-                              height: 30,
+                              height: 10,
                             ),
                             Balance(
                               userId: snapshot.data!,
@@ -67,7 +112,7 @@ class _HomePageState extends State<HomePage> {
                               comparisonWeek: previousWeek,
                             ),
                             const SizedBox(
-                              height: 30,
+                              height: 20,
                             ),
                             Padding(
                               padding: const EdgeInsets.symmetric(
@@ -83,7 +128,7 @@ class _HomePageState extends State<HomePage> {
                             ),
                             Padding(
                               padding: const EdgeInsets.only(
-                                  left: 20, right: 20, bottom: 20, top: 5),
+                                  left: 15, right: 15, bottom: 20, top: 5),
                               child: SfDataGrid(
                                 source: EmployeeDataSource(employees: weights),
                                 gridLinesVisibility: GridLinesVisibility.both,
@@ -202,15 +247,16 @@ class EmployeeDataSource extends DataGridSource {
         color: Colors.grey.shade300,
         cells: row.getCells().map<Widget>((dataGridCell) {
           return Container(
-              alignment: (dataGridCell.columnName == 'id' ||
-                      dataGridCell.columnName == 'salary')
-                  ? Alignment.centerRight
-                  : Alignment.centerLeft,
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              height: 2,
+              alignment: (dataGridCell.columnName == 'date' ||
+                      dataGridCell.columnName == 'amount')
+                  ? Alignment.center
+                  : Alignment.center,
+              padding: const EdgeInsets.symmetric(horizontal: 18.0),
               child: Text(
                 dataGridCell.value.toString(),
                 // overflow: TextOverflow.ellipsis,
-                style: GoogleFonts.lato(fontSize: 18),
+                style: GoogleFonts.lato(fontSize: 16),
               ));
         }).toList());
   }

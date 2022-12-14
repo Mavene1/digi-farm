@@ -43,25 +43,25 @@ class _BalanceState extends State<Balance> {
       mainAxisSize: MainAxisSize.min,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25.0),
+          padding: const EdgeInsets.symmetric(horizontal: 17.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
-                currSum.toStringAsFixed(2),
+                currSum.toStringAsFixed(1),
                 style: GoogleFonts.lato(
-                  color: Colors.black,
+                  color: Colors.grey.shade800,
                   fontSize: 26,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               const SizedBox(
-                width: 10,
+                width: 5,
               ),
               Text(
-                'Kg',
+                'Kgs,',
                 style: GoogleFonts.lato(
-                  color: Colors.black,
+                  color: Colors.grey.shade800,
                   fontSize: 20,
                 ),
               ),
@@ -69,7 +69,7 @@ class _BalanceState extends State<Balance> {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25.0),
+          padding: const EdgeInsets.symmetric(horizontal: 15.0),
           child: ValueListenableBuilder(
             valueListenable: DatabaseService.fetchUpdatesRealtime(
                 previousWeightData, widget.userId, widget.comparisonWeek),
@@ -90,7 +90,7 @@ class _BalanceState extends State<Balance> {
                     color: dev <= 0 ? Colors.red : Colors.green,
                   ),
                   Text(
-                    '${dev.toStringAsFixed(2)}(${perc.toStringAsFixed(2)}%)',
+                    '${dev.toStringAsFixed(1)}(${perc.toStringAsFixed(2)}%)',
                     style: GoogleFonts.lato(
                       color: dev <= 0 ? Colors.red : Colors.green,
                       fontSize: 18,
@@ -98,12 +98,12 @@ class _BalanceState extends State<Balance> {
                     ),
                   ),
                   const SizedBox(
-                    width: 10,
+                    width: 5,
                   ),
                   Text(
-                    'from last week',
+                    'from last week.',
                     style: GoogleFonts.lato(
-                      color: Colors.black,
+                      color: Colors.grey.shade800,
                       fontSize: 14,
                     ),
                   ),

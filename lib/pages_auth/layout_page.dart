@@ -55,7 +55,7 @@ class _LayoutPageState extends State<LayoutPage> {
         ],
         onTap: (int index) {
           _pageController.animateToPage(index,
-              duration: const Duration(milliseconds: 500), curve: Curves.ease);
+              duration: const Duration(milliseconds: 500), curve: Curves.easeIn);
         },
         index: currentPage,
       ),
