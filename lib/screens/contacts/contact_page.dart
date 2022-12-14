@@ -2,6 +2,7 @@ import 'package:d_chart/d_chart.dart';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ContactPage extends StatelessWidget {
   const ContactPage({super.key});
@@ -85,41 +86,70 @@ class ContactPage extends StatelessWidget {
                     const SizedBox(
                       height: 10,
                     ),
-                    Row(
-                      children: [
-                        const Icon(Icons.phone, color: Colors.green),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          '+254723426492',
-                          style: GoogleFonts.lato(
-                            color: Colors.black,
-                            fontSize: 16,
+                    InkWell(
+                      borderRadius: BorderRadius.circular(10),
+                      highlightColor: Colors.black,
+                      onTap: () async {
+                        //print('tapped');
+                        final call = Uri.parse('tel:+254712162894');
+                        if (await canLaunchUrl(call)) {
+                          launchUrl(call);
+                        } else {
+                          throw 'Could not launch $call';
+                        }
+                      },
+                      child: Row(
+                        children: [
+                          const Icon(Icons.phone, color: Colors.green),
+                          const SizedBox(
+                            width: 10,
                           ),
-                        ),
-                      ],
+                          Text(
+                            '+254712162894',
+                            style: GoogleFonts.lato(
+                              color: Colors.black,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                     const SizedBox(
                       height: 10,
                     ),
-                    Row(
-                      children: [
-                        const Icon(
-                          Icons.email,
-                          color: Colors.green,
-                        ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          'support.githu@gmail.com',
-                          style: GoogleFonts.lato(
-                            color: Colors.black,
-                            fontSize: 16,
+                    InkWell(
+                      borderRadius: BorderRadius.circular(10),
+                      highlightColor: Colors.green,
+                      onTap: () async {
+                        final email = Uri(
+                          scheme: 'mailto',
+                          path: 'support.githu@gmail.com',
+                          query: 'subject=Hello&body=Test',
+                        );
+                        if (await canLaunchUrl(email)) {
+                          launchUrl(email);
+                        } else {
+                          throw 'Could not launch $email';
+                        }
+                      },
+                      child: Row(
+                        children: [
+                          const Icon(
+                            Icons.email,
+                            color: Colors.green,
                           ),
-                        ),
-                      ],
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            'support.githu@gmail.com',
+                            style: GoogleFonts.lato(
+                              color: Colors.black,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                     const SizedBox(
                       height: 10,

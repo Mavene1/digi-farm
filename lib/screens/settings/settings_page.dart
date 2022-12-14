@@ -33,14 +33,13 @@ class _SettingsPageState extends State<SettingsPage> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const CircleAvatar(
-                  radius: 22,
-                  backgroundColor: Colors.green,
-                  child: Icon(
-                    Icons.person,
-                    color: Colors.white,
-                  ),
-                ),
+                CircleAvatar(
+                    radius: 22,
+                    backgroundColor: Colors.green,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(50),
+                      child: Image.asset('images/down.jpeg'),
+                    )),
               ],
             ),
           ),

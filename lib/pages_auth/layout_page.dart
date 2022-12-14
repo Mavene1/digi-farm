@@ -15,12 +15,25 @@ class LayoutPage extends StatefulWidget {
 
 class _LayoutPageState extends State<LayoutPage> {
   int currentPage = 0;
+  final PageController _pageController = PageController(initialPage: 0);
   List<Widget> pages = const [HomePage(), ContactPage(), SettingsPage()];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: pages[currentPage],
+      body: PageView(
+        controller: _pageController,
+        onPageChanged: (newPage) {
+          setState(() {
+            currentPage = newPage;
+          });
+        },
+        children: const [
+          HomePage(),
+          ContactPage(),
+          SettingsPage(),
+        ],
+      ),
       backgroundColor: Colors.grey.shade50,
       bottomNavigationBar: CurvedNavigationBar(
         backgroundColor: Colors.grey.shade200,
@@ -41,9 +54,8 @@ class _LayoutPageState extends State<LayoutPage> {
           ),
         ],
         onTap: (int index) {
-          setState(() {
-            currentPage = index;
-          });
+          _pageController.animateToPage(index,
+              duration: const Duration(milliseconds: 500), curve: Curves.ease);
         },
         index: currentPage,
       ),

@@ -103,7 +103,7 @@ class _HomePageState extends State<HomePage> {
                                         ),
                                       ),
                                       padding: const EdgeInsets.symmetric(
-                                          horizontal: 16.0),
+                                          horizontal: 12.0),
                                       alignment: Alignment.center,
                                       child: Text(
                                         'DATE',
@@ -140,7 +140,7 @@ class _HomePageState extends State<HomePage> {
                                         ),
                                       ),
                                       padding: const EdgeInsets.symmetric(
-                                          horizontal: 16.0),
+                                          horizontal: 5.0),
                                       alignment: Alignment.center,
                                       child: Text(
                                         'AMOUNT',
@@ -210,7 +210,7 @@ class EmployeeDataSource extends DataGridSource {
               child: Text(
                 dataGridCell.value.toString(),
                 // overflow: TextOverflow.ellipsis,
-                style: GoogleFonts.lato(fontSize: 20),
+                style: GoogleFonts.lato(fontSize: 18),
               ));
         }).toList());
   }
