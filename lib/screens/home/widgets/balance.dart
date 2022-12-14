@@ -48,10 +48,17 @@ class _BalanceState extends State<Balance> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
+                'Total: ',
+                style: GoogleFonts.lato(
+                  color: Colors.grey.shade800,
+                  fontSize: 17,
+                ),
+              ),
+              Text(
                 currSum.toStringAsFixed(1),
                 style: GoogleFonts.lato(
                   color: Colors.grey.shade800,
-                  fontSize: 26,
+                  fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -62,7 +69,7 @@ class _BalanceState extends State<Balance> {
                 'Kgs,',
                 style: GoogleFonts.lato(
                   color: Colors.grey.shade800,
-                  fontSize: 20,
+                  fontSize: 17,
                 ),
               ),
             ],
@@ -93,7 +100,7 @@ class _BalanceState extends State<Balance> {
                     '${dev.toStringAsFixed(1)}(${perc.toStringAsFixed(2)}%)',
                     style: GoogleFonts.lato(
                       color: dev <= 0 ? Colors.red : Colors.green,
-                      fontSize: 18,
+                      fontSize: 15,
                       fontWeight: FontWeight.bold,
                     ),
                   ),

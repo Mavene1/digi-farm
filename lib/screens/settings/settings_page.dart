@@ -21,20 +21,19 @@ class _SettingsPageState extends State<SettingsPage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 30.0, vertical: 12.0),
+            padding: const EdgeInsets.only(left: 15.0, right: 15, top: 10.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   'Wafula',
                   style: GoogleFonts.lato(
-                    fontSize: 26,
+                    fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 CircleAvatar(
-                    radius: 22,
+                    radius: 18,
                     backgroundColor: Colors.green,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(50),
@@ -43,19 +42,17 @@ class _SettingsPageState extends State<SettingsPage> {
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 0),
-            child: Divider(
-              color: Colors.grey[400],
-              thickness: 1,
-            ),
+          Divider(
+            color: Colors.grey[400],
+            thickness: 1,
           ),
           const SizedBox(
-            height: 10,
+            height: 15,
           ),
           Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 30.0, vertical: 5.0),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 15.0,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -70,13 +67,14 @@ class _SettingsPageState extends State<SettingsPage> {
                       Icon(
                         Icons.lock_outline_rounded,
                         color: Colors.grey.shade800,
+                        size: 18,
                       ),
                       const SizedBox(
                         width: 6,
                       ),
                       Text('Change Password',
                           style: GoogleFonts.lato(
-                              fontSize: 20, color: Colors.grey[800])),
+                              fontSize: 18, color: Colors.grey[800])),
                     ],
                   ),
                 ),
@@ -93,7 +91,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     children: [
                       Text('Privacy and Policy',
                           style: GoogleFonts.lato(
-                              fontSize: 20, color: Colors.grey[800])),
+                              fontSize: 18, color: Colors.grey[800])),
                     ],
                   ),
                 ),
@@ -110,7 +108,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     children: [
                       Text('Terms of Use',
                           style: GoogleFonts.lato(
-                              fontSize: 20, color: Colors.grey[800])),
+                              fontSize: 18, color: Colors.grey[800])),
                     ],
                   ),
                 ),
@@ -125,13 +123,17 @@ class _SettingsPageState extends State<SettingsPage> {
                   },
                   child: Row(
                     children: [
-                      Icon(Icons.help_outline_rounded, color: Colors.grey[800]),
+                      Icon(
+                        Icons.help_outline_rounded,
+                        color: Colors.grey[800],
+                        size: 18,
+                      ),
                       const SizedBox(
                         width: 6,
                       ),
                       Text('Help and Support',
                           style: GoogleFonts.lato(
-                              fontSize: 20, color: Colors.grey[800])),
+                              fontSize: 18, color: Colors.grey[800])),
                     ],
                   ),
                 ),

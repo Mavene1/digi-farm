@@ -12,7 +12,7 @@ class ContactPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey.shade200,
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 5),
+        padding: const EdgeInsets.symmetric(horizontal: 0),
         child: SafeArea(
           child: ListView(
             padding: const EdgeInsets.all(16),
@@ -24,10 +24,6 @@ class ContactPage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(16)),
                 child: Column(
                   children: [
-                    const Icon(
-                      Icons.menu,
-                      color: Colors.green,
-                    ),
                     AspectRatio(
                       aspectRatio: 16 / 9,
                       child: DChartBarCustom(
@@ -69,7 +65,7 @@ class ContactPage extends StatelessWidget {
                 height: 20,
               ),
               Container(
-                padding: const EdgeInsets.all(20),
+                padding: const EdgeInsets.all(15),
                 decoration: BoxDecoration(
                     color: Colors.blue.shade100,
                     borderRadius: BorderRadius.circular(16)),

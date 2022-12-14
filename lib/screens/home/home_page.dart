@@ -112,18 +112,14 @@ class _HomePageState extends State<HomePage> {
                               comparisonWeek: previousWeek,
                             ),
                             const SizedBox(
-                              height: 20,
+                              height: 10,
                             ),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 0.0, vertical: 0.0),
-                              child: Text(
-                                'Produce Submitted',
-                                style: GoogleFonts.lato(
-                                  fontSize: 20,
-                                  color: Colors.grey[800],
-                                  fontWeight: FontWeight.bold,
-                                ),
+                            Text(
+                              'Produce Submitted',
+                              style: GoogleFonts.lato(
+                                fontSize: 20,
+                                color: Colors.grey[800],
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                             Padding(
