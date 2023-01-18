@@ -13,9 +13,9 @@ import 'pages_auth/layout_page.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Supabase.initialize(
-    url: 'http://143.110.224.221:8000',
+    url: const String.fromEnvironment('SUPABASE_URL'),
     anonKey:
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.ewogICAgInJvbGUiOiAiYW5vbiIsCiAgICAiaXNzIjogInN1cGFiYXNlIiwKICAgICJpYXQiOiAxNjcxMzk3MjAwLAogICAgImV4cCI6IDE4MjkxNjM2MDAKfQ.3hJqY8rp8lDH-shcEVP3xIVzfvYDtqsQkWin4SsCUAI',
+        const String.fromEnvironment('SUPABASE_SERVICE_KEY'),
     debug: true,
   );
 
