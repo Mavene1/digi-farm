@@ -13,9 +13,9 @@ import 'pages_auth/layout_page.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Supabase.initialize(
-    url: 'https://cofsiyieryhksfbkbskp.supabase.co',
+    url: 'http://143.110.224.221:8000',
     anonKey:
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNvZnNpeWllcnloa3NmYmtic2twIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzAyNDAzOTYsImV4cCI6MTk4NTgxNjM5Nn0.84AjnK6ciJFgdVoOpD7520e9B91Ut9mIosUAKWiQDU8',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.ewogICAgInJvbGUiOiAiYW5vbiIsCiAgICAiaXNzIjogInN1cGFiYXNlIiwKICAgICJpYXQiOiAxNjcxMzk3MjAwLAogICAgImV4cCI6IDE4MjkxNjM2MDAKfQ.3hJqY8rp8lDH-shcEVP3xIVzfvYDtqsQkWin4SsCUAI',
     debug: true,
   );
 
