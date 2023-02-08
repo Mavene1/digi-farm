@@ -104,7 +104,7 @@ class _HomePageState extends State<HomePage> {
                               weightData: weights,
                             ),
                             const SizedBox(
-                              height: 10,
+                              height: 15,
                             ),
                             Balance(
                               userId: snapshot.data!,
@@ -112,7 +112,7 @@ class _HomePageState extends State<HomePage> {
                               comparisonWeek: previousWeek,
                             ),
                             const SizedBox(
-                              height: 10,
+                              height: 18,
                             ),
                             Text(
                               'Produce Submitted',

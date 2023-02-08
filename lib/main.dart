@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
+//import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:flutter/services.dart';
 
 import 'auth/auth_page.dart';
 import 'pages_auth/layout_page.dart';
@@ -27,7 +28,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    FlutterStatusbarcolor.setStatusBarColor(Colors.grey.shade200);
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Colors.grey.shade200,
+      statusBarBrightness: Brightness.dark,
+    ));
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: MainPage(),

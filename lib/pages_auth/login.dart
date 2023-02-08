@@ -1,9 +1,9 @@
 // ignore_for_file: avoid_print, use_build_context_synchronously,
 
-import 'package:digi_farmers/widgets/popup_message.dart';
+//import 'package:digi_farmers/widgets/popup_message.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:internet_connection_checker/internet_connection_checker.dart';
+//import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import 'forgot_pass_page.dart';
@@ -80,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey[300],
+        backgroundColor: Colors.grey[200],
         body: SafeArea(
           child: Center(
             child: SingleChildScrollView(

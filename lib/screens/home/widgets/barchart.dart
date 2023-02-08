@@ -25,7 +25,7 @@ class _BarChartState extends State<BarChart> {
                 color: Colors.blue.shade100,
                 borderRadius: BorderRadius.circular(16)),
             width: 330,
-            height: 150,
+            height: 190,
             padding: const EdgeInsets.all(10),
             child: AspectRatio(
               aspectRatio: 16 / 9,
